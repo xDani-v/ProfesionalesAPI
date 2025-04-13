@@ -1,5 +1,4 @@
 using Scalar.AspNetCore;
-using ProfesionalesAPI.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
@@ -28,8 +27,8 @@ Console.WriteLine($"Environment: {builder.Environment.EnvironmentName}");
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 Console.WriteLine($"Connection String: {connectionString}"); // Depuración
 
-builder.Services.AddDbContext<DataContext>(options =>
-    options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<AppDbContext>(options =>
+    options.UseSqlServer(connectionString));
 
 // Agregar servicios de controladores
 builder.Services.AddControllers().AddJsonOptions(options =>
