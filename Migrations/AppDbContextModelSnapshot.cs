@@ -22,66 +22,13 @@ namespace ProfesionalesAPI.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Application", b =>
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Archivos", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("DocenteAsignadoId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Estado")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EstudianteId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("FechaActualizacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("FechaCreacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("FechaPostulacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("OfertaId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("DocenteAsignadoId");
-
-                    b.HasIndex("EstudianteId");
-
-                    b.HasIndex("OfertaId");
-
-                    b.ToTable("Postulaciones");
-                });
-
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Company", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Ciudad")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Direccion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Estado")
                         .HasColumnType("bit");
@@ -90,287 +37,27 @@ namespace ProfesionalesAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime>("FechaCreacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("InstitucionId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NombreComercial")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NombreLegal")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Pais")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Provincia")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Representante")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Ruc")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Telefono")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("InstitucionId");
-
-                    b.ToTable("Empresas");
-                });
-
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Document", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("EntidadId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Estado")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("FechaActualizacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("FechaCreacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("FechaSubida")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("NombreArchivo")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Ruta")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TipoDocumento")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("TipoEntidad")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("UserId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Documentos");
-                });
-
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Evaluation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<decimal>("Calificacion")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("Comentarios")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("DocenteId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Estado")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("Fecha")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("FechaActualizacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("FechaCreacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("PracticaId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Tipo")
+                    b.Property<string>("TipoEntidad")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("DocenteId");
-
-                    b.HasIndex("PracticaId");
-
-                    b.ToTable("Evaluaciones");
+                    b.ToTable("Archivos");
                 });
 
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Institution", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Ciudad")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Direccion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("Estado")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("FechaActualizacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("FechaCreacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("LogoUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Pais")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Provincia")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("RUC")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<string>("Telefono")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("RUC")
-                        .IsUnique();
-
-                    b.ToTable("Instituciones");
-                });
-
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Internship", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Estado")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("FechaActualizacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("FechaCreacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("FechaFin")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("FechaInicio")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("HorasTotales")
-                        .HasColumnType("int");
-
-                    b.Property<int>("PostulacionId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PostulacionId")
-                        .IsUnique();
-
-                    b.ToTable("Practicas");
-                });
-
-            modelBuilder.Entity("ProfesionalesAPI.Dto.InternshipOffer", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Area")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("CantidadVacantes")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EmpresaId")
-                        .HasColumnType("int");
-
-                    b.Property<bool>("Estado")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("FechaActualizacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("FechaCreacion")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("PeriodoId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Requisitos")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("EmpresaId");
-
-                    b.HasIndex("PeriodoId");
-
-                    b.ToTable("OfertasPracticas");
-                });
-
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Logbook", b =>
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Bitacora", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -379,7 +66,6 @@ namespace ProfesionalesAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Actividades")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Estado")
@@ -398,20 +84,330 @@ namespace ProfesionalesAPI.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Observaciones")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("OfertaId")
+                        .HasColumnType("int");
 
                     b.Property<int>("PracticaId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("OfertaId");
+
                     b.HasIndex("PracticaId");
 
                     b.ToTable("Bitacoras");
                 });
 
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Period", b =>
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Company", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Ciudad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Direccion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("FechaActualizacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("NombreComercial")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("NombreLegal")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pais")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Provincia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Representante")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Ruc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefono")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("usuarioId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("usuarioId");
+
+                    b.ToTable("Empresas");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Convenio", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("EmpresaId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("FechaActualizacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("InstitucionlId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmpresaId");
+
+                    b.HasIndex("InstitucionlId");
+
+                    b.ToTable("Convenios");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.DocentePeriodo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("DocenteId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("FechaActualizacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaFin")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("FechaInicio")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("PeriodoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DocenteId");
+
+                    b.HasIndex("PeriodoId");
+
+                    b.ToTable("docentePeriodos");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.EstudiantePeriodo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("EstudianteId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FechaActualizacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("PeriodoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EstudianteId");
+
+                    b.HasIndex("PeriodoId");
+
+                    b.ToTable("estudiantePeriodos");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Evaluation", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<decimal>("Calificacion")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Comentarios")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("DocenteId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("Fecha")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaActualizacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("OfertaId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Tipo")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("postulacionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DocenteId");
+
+                    b.HasIndex("OfertaId");
+
+                    b.HasIndex("postulacionId");
+
+                    b.ToTable("Evaluaciones");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Institucion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Ciudad")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Direccion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("FechaActualizacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LogoUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Nombre")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Pais")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Provincia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("RUC")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefono")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Instituciones");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Oferta", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Actividades")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Area")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("CompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Descripcion")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTime>("FechaActualizacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("Vacantes")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("institucionId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("periodoId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.HasIndex("institucionId");
+
+                    b.HasIndex("periodoId");
+
+                    b.ToTable("Ofertas");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Periodo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -447,6 +443,43 @@ namespace ProfesionalesAPI.Migrations
                     b.ToTable("Periodos");
                 });
 
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Postulacion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("DocenteId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Estado")
+                        .HasColumnType("bit");
+
+                    b.Property<int?>("EstudianteId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("FechaActualizacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("FechaCreacion")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("OfertaId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DocenteId");
+
+                    b.HasIndex("EstudianteId");
+
+                    b.HasIndex("OfertaId");
+
+                    b.ToTable("Postulaciones");
+                });
+
             modelBuilder.Entity("ProfesionalesAPI.Dto.Role", b =>
                 {
                     b.Property<int>("Id")
@@ -472,7 +505,7 @@ namespace ProfesionalesAPI.Migrations
                     b.ToTable("Roles");
                 });
 
-            modelBuilder.Entity("ProfesionalesAPI.Dto.User", b =>
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Usuario", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -481,22 +514,18 @@ namespace ProfesionalesAPI.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Apellidos")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("BloqueoHasta")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Ciudad")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Correo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Direccion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Estado")
@@ -509,145 +538,53 @@ namespace ProfesionalesAPI.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Identificacion")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("InstitucionId")
+                    b.Property<int?>("InstitucionId")
                         .HasColumnType("int");
 
                     b.Property<int>("IntentosFallidos")
                         .HasColumnType("int");
 
                     b.Property<string>("Nombres")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<byte[]>("PasswordHash")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
                     b.Property<byte[]>("PasswordSalt")
-                        .IsRequired()
                         .HasColumnType("varbinary(max)");
 
-                    b.Property<int>("RolId")
+                    b.Property<int?>("RolId")
                         .HasColumnType("int");
 
                     b.Property<string>("Telefono")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("UltimoCambioPassword")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+                    b.Property<int?>("UsuarioId")
+                        .HasColumnType("int");
 
-                    b.HasIndex("Correo")
-                        .IsUnique();
+                    b.HasKey("Id");
 
                     b.HasIndex("InstitucionId");
 
                     b.HasIndex("RolId");
 
+                    b.HasIndex("UsuarioId");
+
                     b.ToTable("Usuarios");
                 });
 
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Application", b =>
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Bitacora", b =>
                 {
-                    b.HasOne("ProfesionalesAPI.Dto.User", "DocenteAsignado")
-                        .WithMany()
-                        .HasForeignKey("DocenteAsignadoId")
-                        .OnDelete(DeleteBehavior.Restrict);
+                    b.HasOne("ProfesionalesAPI.Dto.Oferta", null)
+                        .WithMany("Bitacoras")
+                        .HasForeignKey("OfertaId");
 
-                    b.HasOne("ProfesionalesAPI.Dto.User", "Estudiante")
-                        .WithMany("Postulaciones")
-                        .HasForeignKey("EstudianteId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("ProfesionalesAPI.Dto.InternshipOffer", "Oferta")
-                        .WithMany("Postulaciones")
-                        .HasForeignKey("OfertaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("DocenteAsignado");
-
-                    b.Navigation("Estudiante");
-
-                    b.Navigation("Oferta");
-                });
-
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Company", b =>
-                {
-                    b.HasOne("ProfesionalesAPI.Dto.Institution", "Institucion")
-                        .WithMany("Companies")
-                        .HasForeignKey("InstitucionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Institucion");
-                });
-
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Document", b =>
-                {
-                    b.HasOne("ProfesionalesAPI.Dto.User", null)
-                        .WithMany("Documentos")
-                        .HasForeignKey("UserId");
-                });
-
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Evaluation", b =>
-                {
-                    b.HasOne("ProfesionalesAPI.Dto.User", "Docente")
-                        .WithMany("Evaluaciones")
-                        .HasForeignKey("DocenteId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ProfesionalesAPI.Dto.Internship", "Practica")
-                        .WithMany("Evaluaciones")
-                        .HasForeignKey("PracticaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Docente");
-
-                    b.Navigation("Practica");
-                });
-
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Internship", b =>
-                {
-                    b.HasOne("ProfesionalesAPI.Dto.Application", "Postulacion")
-                        .WithOne("Practica")
-                        .HasForeignKey("ProfesionalesAPI.Dto.Internship", "PostulacionId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Postulacion");
-                });
-
-            modelBuilder.Entity("ProfesionalesAPI.Dto.InternshipOffer", b =>
-                {
-                    b.HasOne("ProfesionalesAPI.Dto.Company", "Empresa")
-                        .WithMany("Ofertas")
-                        .HasForeignKey("EmpresaId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("ProfesionalesAPI.Dto.Period", "Periodo")
-                        .WithMany("Ofertas")
-                        .HasForeignKey("PeriodoId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.Navigation("Empresa");
-
-                    b.Navigation("Periodo");
-                });
-
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Logbook", b =>
-                {
-                    b.HasOne("ProfesionalesAPI.Dto.Internship", "Practica")
+                    b.HasOne("ProfesionalesAPI.Dto.Postulacion", "Practica")
                         .WithMany("Bitacoras")
                         .HasForeignKey("PracticaId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -656,10 +593,112 @@ namespace ProfesionalesAPI.Migrations
                     b.Navigation("Practica");
                 });
 
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Period", b =>
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Company", b =>
                 {
-                    b.HasOne("ProfesionalesAPI.Dto.Institution", "Institucion")
-                        .WithMany("Periods")
+                    b.HasOne("ProfesionalesAPI.Dto.Usuario", "user")
+                        .WithMany()
+                        .HasForeignKey("usuarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("user");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Convenio", b =>
+                {
+                    b.HasOne("ProfesionalesAPI.Dto.Company", "Empresa")
+                        .WithMany("Convenios")
+                        .HasForeignKey("EmpresaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProfesionalesAPI.Dto.Institucion", "Institucion")
+                        .WithMany("Convenios")
+                        .HasForeignKey("InstitucionlId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Empresa");
+
+                    b.Navigation("Institucion");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.DocentePeriodo", b =>
+                {
+                    b.HasOne("ProfesionalesAPI.Dto.Usuario", "Docente")
+                        .WithMany("Docentes")
+                        .HasForeignKey("DocenteId");
+
+                    b.HasOne("ProfesionalesAPI.Dto.Periodo", "Periodo")
+                        .WithMany("Docentes")
+                        .HasForeignKey("PeriodoId");
+
+                    b.Navigation("Docente");
+
+                    b.Navigation("Periodo");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.EstudiantePeriodo", b =>
+                {
+                    b.HasOne("ProfesionalesAPI.Dto.Usuario", "Estudiante")
+                        .WithMany("Estudiantes")
+                        .HasForeignKey("EstudianteId");
+
+                    b.HasOne("ProfesionalesAPI.Dto.Periodo", "Periodo")
+                        .WithMany("Estudiantes")
+                        .HasForeignKey("PeriodoId");
+
+                    b.Navigation("Estudiante");
+
+                    b.Navigation("Periodo");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Evaluation", b =>
+                {
+                    b.HasOne("ProfesionalesAPI.Dto.Usuario", "Docente")
+                        .WithMany()
+                        .HasForeignKey("DocenteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ProfesionalesAPI.Dto.Oferta", null)
+                        .WithMany("Evaluaciones")
+                        .HasForeignKey("OfertaId");
+
+                    b.HasOne("ProfesionalesAPI.Dto.Postulacion", "Postulacion")
+                        .WithMany("Evaluaciones")
+                        .HasForeignKey("postulacionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Docente");
+
+                    b.Navigation("Postulacion");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Oferta", b =>
+                {
+                    b.HasOne("ProfesionalesAPI.Dto.Company", null)
+                        .WithMany("Ofertas")
+                        .HasForeignKey("CompanyId");
+
+                    b.HasOne("ProfesionalesAPI.Dto.Institucion", "Institucion")
+                        .WithMany()
+                        .HasForeignKey("institucionId");
+
+                    b.HasOne("ProfesionalesAPI.Dto.Periodo", "Periodo")
+                        .WithMany("Ofertas")
+                        .HasForeignKey("periodoId");
+
+                    b.Navigation("Institucion");
+
+                    b.Navigation("Periodo");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Periodo", b =>
+                {
+                    b.HasOne("ProfesionalesAPI.Dto.Institucion", "Institucion")
+                        .WithMany("Periodos")
                         .HasForeignKey("InstitucionId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -667,60 +706,95 @@ namespace ProfesionalesAPI.Migrations
                     b.Navigation("Institucion");
                 });
 
-            modelBuilder.Entity("ProfesionalesAPI.Dto.User", b =>
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Postulacion", b =>
                 {
-                    b.HasOne("ProfesionalesAPI.Dto.Institution", "Institucion")
+                    b.HasOne("ProfesionalesAPI.Dto.DocentePeriodo", "Docente")
+                        .WithMany("Postulaciones")
+                        .HasForeignKey("DocenteId");
+
+                    b.HasOne("ProfesionalesAPI.Dto.EstudiantePeriodo", "Estudiante")
+                        .WithMany("Postulaciones")
+                        .HasForeignKey("EstudianteId");
+
+                    b.HasOne("ProfesionalesAPI.Dto.Oferta", "Oferta")
+                        .WithMany("Postulaciones")
+                        .HasForeignKey("OfertaId");
+
+                    b.Navigation("Docente");
+
+                    b.Navigation("Estudiante");
+
+                    b.Navigation("Oferta");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Usuario", b =>
+                {
+                    b.HasOne("ProfesionalesAPI.Dto.Institucion", "Institucion")
                         .WithMany("Users")
-                        .HasForeignKey("InstitucionId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("InstitucionId");
 
                     b.HasOne("ProfesionalesAPI.Dto.Role", "Rol")
                         .WithMany("Usuarios")
-                        .HasForeignKey("RolId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("RolId");
+
+                    b.HasOne("ProfesionalesAPI.Dto.Usuario", null)
+                        .WithMany("Usuarios")
+                        .HasForeignKey("UsuarioId");
 
                     b.Navigation("Institucion");
 
                     b.Navigation("Rol");
                 });
 
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Application", b =>
-                {
-                    b.Navigation("Practica")
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("ProfesionalesAPI.Dto.Company", b =>
                 {
+                    b.Navigation("Convenios");
+
                     b.Navigation("Ofertas");
                 });
 
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Institution", b =>
-                {
-                    b.Navigation("Companies");
-
-                    b.Navigation("Periods");
-
-                    b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Internship", b =>
-                {
-                    b.Navigation("Bitacoras");
-
-                    b.Navigation("Evaluaciones");
-                });
-
-            modelBuilder.Entity("ProfesionalesAPI.Dto.InternshipOffer", b =>
+            modelBuilder.Entity("ProfesionalesAPI.Dto.DocentePeriodo", b =>
                 {
                     b.Navigation("Postulaciones");
                 });
 
-            modelBuilder.Entity("ProfesionalesAPI.Dto.Period", b =>
+            modelBuilder.Entity("ProfesionalesAPI.Dto.EstudiantePeriodo", b =>
                 {
+                    b.Navigation("Postulaciones");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Institucion", b =>
+                {
+                    b.Navigation("Convenios");
+
+                    b.Navigation("Periodos");
+
+                    b.Navigation("Users");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Oferta", b =>
+                {
+                    b.Navigation("Bitacoras");
+
+                    b.Navigation("Evaluaciones");
+
+                    b.Navigation("Postulaciones");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Periodo", b =>
+                {
+                    b.Navigation("Docentes");
+
+                    b.Navigation("Estudiantes");
+
                     b.Navigation("Ofertas");
+                });
+
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Postulacion", b =>
+                {
+                    b.Navigation("Bitacoras");
+
+                    b.Navigation("Evaluaciones");
                 });
 
             modelBuilder.Entity("ProfesionalesAPI.Dto.Role", b =>
@@ -728,13 +802,13 @@ namespace ProfesionalesAPI.Migrations
                     b.Navigation("Usuarios");
                 });
 
-            modelBuilder.Entity("ProfesionalesAPI.Dto.User", b =>
+            modelBuilder.Entity("ProfesionalesAPI.Dto.Usuario", b =>
                 {
-                    b.Navigation("Documentos");
+                    b.Navigation("Docentes");
 
-                    b.Navigation("Evaluaciones");
+                    b.Navigation("Estudiantes");
 
-                    b.Navigation("Postulaciones");
+                    b.Navigation("Usuarios");
                 });
 #pragma warning restore 612, 618
         }
